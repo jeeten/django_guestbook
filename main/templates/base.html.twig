@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block meta %}{% endblock %}
+        <title>
+            {% block title %}{% endblock %}
+        </title>
+        {% block stylesheets %}{% endblock %}
+        {% block customcss %}{% endblock %}
+    </head>
+    <body id="page-top">
+        <div id="wrapper">
+            {% block body %}
+                {% block sidebar %}{% endblock %}
+                <div class="d-flex flex-column" id="content-wrapper">
+                    <div id="content">
+                        {% block content %}
+                            {% block contenttop %}{% endblock %}
+                            <div class="container-fluid">
+                                {% block flashmessage %}{% endblock %}
+                                {% block contentmain %}{% endblock %}
+                            </div>
+                        {% endblock %}
+                    </div>
+                    <footer>
+                        {% block footer %}{% endblock %}
+                    </footer>
+                </div>
+            {% endblock %}
+        </div>
+        {% block modlebox %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        {% block customjs %}{% endblock %}
+    </body>
+</html>
