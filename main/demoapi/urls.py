@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
-from main.demoapi import views
+from demoapi import views
+
 
 router = routers.DefaultRouter()
 router.register('users', views.UserViewSet)
@@ -10,5 +11,7 @@ router.register('groups', views.GroupViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('guest', views.ListGuest.as_view()),
+    path('guest/<int:pk>/', views.DetailGuest.as_view())
 ]

@@ -48,8 +48,10 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('accounts/signup/student/', StudentSignUpView.as_view(), name='user_signup'),
     path('accounts/home/', ProfileHomeView.as_view(), name='home'),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls',namespace='rest_framework')),
+
+    path('', include('demoapi.urls')),
+    # path('', include(router.urls)),
+    # path('api-auth/', include('rest_framework.urls',namespace='rest_framework')),
     # path('', include(user_admin_site.urls)),
     # path('accounts/signup/teacher/', teachers.TeacherSignUpView.as_view(), name='teacher_signup'),
 ]

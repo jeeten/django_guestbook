@@ -1,8 +1,9 @@
 # Create your views here.
 from django.shortcuts import render
-from guest.models import User, Group
-from rest_framework import viewsets
-from main.demoapi.serealizers import UserSerailiser, GroupSerailiser
+from guest.models import User,Guest
+from django.contrib.auth.models import Group
+from rest_framework import viewsets, generics
+from demoapi.serializers import UserSerializer, GroupSerializer,GuestSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """ 
@@ -16,9 +17,17 @@ class GroupViewSet(viewsets.ModelViewSet):
     API endpoint that allows groups to be viewed or edited.
     """
     queryset = Group.objects.all()
-    serialiser_class = GroupSerailiser
+    serializer_class = GroupSerializer
 
-    
+class ListGuest(generics.ListCreateAPIView):
+    queryset = Guest.objects.all()
+    serializer_class = GuestSerializer
+
+class DetailGuest(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+
 
 
 
