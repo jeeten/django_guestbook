@@ -1,5 +1,4 @@
 from django.shortcuts import render, HttpResponseRedirect
-import matplotlib.pyplot as plt
 from testform.forms import ContactForm,GuestForm
 from guest.models import Guest
 from django.contrib.auth.decorators import permission_required, login_required,user_passes_test
