@@ -1,0 +1,31 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
+{% block content %}
+  {% include 'guest/_header.html' with active='new' %}
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% comment %} {{guest_list}} {% endcomment %}
+        {% if guest_list %}
+          {% comment %} {{guest_list.descriptin}} {% endcomment %}
+          {% for guest in guest_lis %}
+            {{ guest.get_string_fields }}
+            <tr>
+              <td class="align-middle">{{ guest.descriptin }}</td>
+              <td class="align-middle">{{ guest.image }}</td>
+              {% comment %} <td class="text-right">
+                <a href="{% url 'students:take_quiz' quiz.pk %}" class="btn btn-primary">Start quiz</a>
+              </td> {% endcomment %}
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

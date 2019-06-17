@@ -1,0 +1,7 @@
+{% for guest in guests %}
+    {{guest.descriptin}}|
+    <img src="{{guest.image.url}}" width="20%" height="25%"/>|
+    {{guest.author_id}}|
+    {{guest.addeddate}}|
+    {{guest.updateddate}}
+{% endfor %}
